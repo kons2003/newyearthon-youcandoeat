@@ -28,3 +28,11 @@ spring:
       detection-strategy: annotated
   thymeleaf3:
     decoupled-logic: true
+
+openApi:
+  callBackUrl: http://localhost:8080
+  keyId: ${KEY_ID}
+  serviceId: youcandoeat
+  dataType: json
+  startIdx: 1
+  endIdx: 1
