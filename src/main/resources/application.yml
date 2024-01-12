@@ -1,3 +1,5 @@
+
+
 debug: false
 management.endpoints.web.exposure.include: "*"
 
@@ -14,25 +16,27 @@ spring:
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    open-in-view: false
-    defer-datasource-initialization: true
-    hibernate.ddl-auto: create
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
     show-sql: true
     properties:
-      hibernate.format_sql: true
-      hibernate.default_batch_fetch_size: 100
-  sql.init.mode: always
-  data:
-    rest:
-      base-path: /api
-      detection-strategy: annotated
-  thymeleaf3:
-    decoupled-logic: true
+      hibernate:
+        format_sql: false
+        use_sql_comments: true
 
 openApi:
-  callBackUrl: http://localhost:8080
+  callBackUrl: http://openapi.foodsafetykorea.go.kr/api/
   keyId: ${KEY_ID}
-  serviceId: youcandoeat
+  serviceId: "식품영양성분DB(NEW)"
   dataType: json
   startIdx: 1
-  endIdx: 1
+  endIdx: 10
+  DESC_KOR: "가자미구이"
+  RESEARCH_YEAR: "2019"
+  MAKER_NAME: ""
+  FOOD_CD: "D00001"
+  CHNG_DT: "20210830"
+server:
+  port: 8080
